@@ -1,0 +1,109 @@
+/* style.css - Dark Theme */
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #121212;
+  color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 700px;
+  margin: 40px auto;
+  background: #1e1e1e;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
+}
+
+h1 {
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.peer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.peer-card {
+  background: #2a2a2a;
+  margin: 10px 0;
+  padding: 16px 20px;
+  border-radius: 8px;
+  border-left: 6px solid #00bcd4;
+  transition: background 0.3s;
+}
+
+.peer-card:hover {
+  background: #333;
+}
+
+.peer-id {
+  font-weight: bold;
+  font-size: 16px;
+  color: #00bcd4;
+}
+
+.peer-ip {
+  font-size: 14px;
+  color: #cccccc;
+  margin-top: 4px;
+}
+
+.empty-message {
+  text-align: center;
+  font-size: 16px;
+  color: #888;
+  padding: 20px;
+}
+
+/* Scrollbar for long peer lists */
+.peer-list::-webkit-scrollbar {
+  width: 8px;
+}
+.peer-list::-webkit-scrollbar-thumb {
+  background-color: #444;
+  border-radius: 4px;
+}
+.upload-section {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #444;
+}
+
+.upload-section h2 {
+  color: #00bcd4;
+}
+
+#fileInput {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+#fileList li a {
+  color: #8ef;
+  text-decoration: none;
+}
+
+#fileList li a:hover {
+  text-decoration: underline;
+}
+
+input[type="file"] {
+  margin-top: 10px;
+}
+
+button {
+  margin-left: 10px;
+  padding: 6px 12px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
