@@ -106,4 +106,30 @@ button {
   border-radius: 6px;
   cursor: pointer;
 }
+.peer-files {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #ccc;
+}
 
+.peer-files strong {
+  color: #00bcd4;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.peer-files ul {
+  padding-left: 20px;
+  margin: 6px 0 0 0;
+}
+
+.peer-files li {
+  margin-bottom: 4px;
+  list-style: none;
+}
+
+.peer-files li::before {
+  content: "📄";
+  margin-right: 6px;
+  color: #8ef;
+}

@@ -13,20 +13,18 @@ function App() {
       console.error('Error fetching peers:', err);
     }
   };
+
   React.useEffect(() => {
     loadPeers(); // initial load
     const interval = setInterval(loadPeers, 3000); // refresh every 3s
-    return () => clearInterval(interval); // cleanup
-  }, []);
-
-  React.useEffect(() => {
-    loadPeers();
-    const interval = setInterval(loadPeers, 3000);
-    return () => clearInterval(interval);
+    return () => clearInterval(interval); // cleanup on unmount
   }, []);
 
   const handleUpload = async () => {
-    if (!file) return setStatus('Please select a file');
+    if (!file) {
+      setStatus('Please select a file');
+      return;
+    }
 
     const formData = new FormData();
     formData.append('file', file);
@@ -65,7 +63,21 @@ function App() {
           peers.map(peer => (
             <li key={peer.id} className="peer-card">
               <div className="peer-id">Peer {peer.id}</div>
-              <div className="peer-ip">{peer.address}</div>
+              <div className="peer-ip">IP: {peer.address}</div>
+              <div className="peer-files">
+                <strong>Shared Files:</strong>
+                {peer.files && peer.files.length > 0 ? (
+                  <ul>
+                    {peer.files.map((file, i) => (
+                      <li key={i}>
+                        📄 {file.name} ({(file.size / 1024).toFixed(1)} KB)
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <div>No shared files</div>
+                )}
+              </div>
             </li>
           ))
         )}
