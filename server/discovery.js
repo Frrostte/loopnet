@@ -6,7 +6,7 @@ const os = require('os');
 const MULTICAST_ADDR = '239.255.255.250';
 const PORT = 55555;
 
-const uploadDir = path.join(__dirname, 'uploads');
+const uploadDir = path.join(__dirname, '/server/uploads');
 
 const socket = dgram.createSocket({ type: 'udp4', reuseAddr: true });
 const peers = new Map();

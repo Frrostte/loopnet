@@ -24,15 +24,6 @@ if (!fs.existsSync(uploadDir)) {
   fs.mkdirSync(uploadDir);
 }
 
-// Peers API
-app.get('/peers', (req, res) => {
-  const peersArray = Array.from(discovery.peers.entries()).map(([id, info]) => ({
-    id,
-    address: info.address,
-    lastSeen: info.lastSeen,
-  }));
-  res.json(peersArray);
-});
 
 // Upload API
 app.post('/upload', upload.single('file'), (req, res) => {
@@ -55,6 +46,7 @@ app.get('/peers', (req, res) => {
     id,
     address: peer.address,
     lastSeen: peer.lastSeen,
+    port: peer.port || PORT,  
     files: peer.files,
   }));
   res.json(peerList);
