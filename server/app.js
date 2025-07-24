@@ -18,6 +18,8 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 // Create uploads folder if it doesn't exist
 const uploadDir = path.join(__dirname, 'uploads');
+//expose the uploads/ folder
+app.use('/files', express.static(uploadDir));
 if (!fs.existsSync(uploadDir)) {
   fs.mkdirSync(uploadDir);
 }
@@ -59,6 +61,7 @@ app.get('/peers', (req, res) => {
 });
 
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server running at http://localhost:${PORT}`);
 });
+

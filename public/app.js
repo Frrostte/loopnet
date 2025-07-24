@@ -32,7 +32,7 @@ function App() {
     try {
       const res = await fetch('/upload', {
         method: 'POST',
-        body: formData
+        body: formData,
       });
       if (res.ok) {
         setStatus('✅ File uploaded!');
@@ -70,7 +70,13 @@ function App() {
                   <ul>
                     {peer.files.map((file, i) => (
                       <li key={i}>
-                        📄 {file.name} ({(file.size / 1024).toFixed(1)} KB)
+                        <a
+                          href={`http://${peer.address}:${peer.port}/files/${encodeURIComponent(file.name)}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          📄 {file.name} ({(file.size / 1024).toFixed(1)} KB)
+                        </a>
                       </li>
                     ))}
                   </ul>
